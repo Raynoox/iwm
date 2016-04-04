@@ -90,7 +90,7 @@ def find_QRS(y):
          xlist=[]
          v2=[]
          for i in range(0,len(iter)-1):
-              print(max(y[iter[i]:iter[i+1]]))
+             # print(max(y[iter[i]:iter[i+1]]))
               maxlist.append(max(y[iter[i]:iter[i+1]]))
               v = y[iter[i]:iter[i+1]].index(max(y[iter[i]:iter[i+1]]))
               v2.append( int(v) + int(iter[i]))
