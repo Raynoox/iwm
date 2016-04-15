@@ -28,6 +28,7 @@ class Index(object):
                 axes[i-1].cla()
                # print(len(frq), len(self.fftax[i-1]))
                 axes[i-1].plot(frq,self.fftax[i-1])
+                axes[i-1].set_xlim([0,40]) ## zeby ladniej wygladalo, powyzej 40 jest prosta linia
         plt.draw()
 
     def prev(self, event):
@@ -35,6 +36,8 @@ class Index(object):
         for i in range(1,13):
                 axes[i-1].cla()
                 axes[i-1].plot(X[i-1],Y[i-1])
+                axes[i-1].set_xlim([0,ylen])
+        #axes[11].set_xticks(np.linspace(0,10000, 11))
        # ydata = np.sin(2*np.pi*freqs[i]*t)
      #   l.set_ydata(ydata)
         plt.draw()
@@ -91,7 +94,7 @@ def ecg_plot(arr, ax1,signum):
 	if(signum==1):
 		find_QRS(y)
 	ax1.plot(X[signum-1],Y[signum-1])
-	fftax = np.fft.fft(y)/ylen
+	fftax = np.fft.rfft(y)/ylen
 	fftax = fftax[0:int(ylen/2)]
 	global FFTaxes
 	FFTaxes[signum-1] = fftax
