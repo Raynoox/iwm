@@ -1,0 +1,13 @@
+wget -r -np https://www.physionet.org/physiobank/database/ptbdb/
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libexpat1-dev
+cd do folderu wfdb-10.5.24 //lub jaki tam stworzylo
+./configure
+PATH=$PATH:/usr/local/lib //albo tam gdzie w configure napisalo
+make
+//jako su
+make install
+make check
+cd do /IWM
+bash format.sh
+
