@@ -10,7 +10,7 @@ from matplotlib.widgets import Button
 YLABEL_LIST = ['i', 'ii', 'iii', 'avr', 'avl','avf','v1','v2','v3','v4','v5','v6','vx','vy','vz']
 titles = ['ECG signal','FFT','Wavelet Transform Approx','Wavelet Transform detail coef']
 final_list=[]
-WT_times = 10 ## ile razy przepuscic wavelet transofrm >1
+WT_times = 3 ## ile razy przepuscic wavelet transofrm >=1
 mV = 1.0
 ylen = 0
 axes_xlim = [10000,50,0,0] ## to 10000 to ilosc sekund, trzeba byloby zmienac na ylen
@@ -177,7 +177,7 @@ def main():
          print(i,i%4)
     fig = plt.figure('ECG chart')
     callback = Index()
-    data = spio.loadmat('s0010_rem.mat')
+    data = spio.loadmat('s0026lrem_short.mat')
     data = data['val']
     print(data, len(data))
     print(len(data[1]))
